@@ -1,0 +1,384 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-principal: #F5F5DC;
+    --color-boton: #d0c37c;
+    --borde: 5px;
+}
+
+body {
+    font-family: Roboto, Playfair Display;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #f4f2ce;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0;
+}
+
+ul li {
+    display: inline-block;
+    padding: 20px;
+}
+
+ul li:hover a{
+    color: #333333;
+    text-decoration: none; 
+}
+.menu-link {
+    text-decoration: none; 
+    color: black; 
+    margin-right: 20px; 
+    font-weight: bold;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 250px;
+    z-index: 90;
+    top: 90%;
+    padding: 0;
+    box-shadow: 2px 2px 5px 0 gray;
+    border-radius: var(--borde);
+}
+
+li:hover .submenu{
+    display: block;
+}
+
+.submenu li {
+    text-align: left;
+    padding: 0;
+    display: block;
+    padding: 10px;
+}
+
+.submenu li:hover {
+    background-color: var(--color-principal);
+}
+
+.logo {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.buscador input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.hero {
+    width: 100%;
+    height: 50%;
+    background-color: #F5F5DC; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-contenido {
+    text-align: center;
+    position: relative;
+}
+
+.hero-contenido img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-boton {
+    text-decoration: none;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 15px 30px;
+    background-color: #6d6b5f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-boton:hover {
+    background-color: #5a574f;
+}
+
+.indicadores {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicadores  div {
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+
+.indicadores .activo {
+    background-color: #333;
+}
+
+.producto-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.producto-tarjeta{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+}
+
+.producto-tarjeta img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.producto-tarjeta .producto-nombre {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+.producto-tarjeta .producto-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #333333;
+    color: white;
+    border-radius: 20px;
+}
+
+.promociones{
+    display: flex;
+    justify-content: space-between;
+    background-color: #F5F5DC;
+    width: 100%;
+    height: 200px;
+    text-align: left;
+    padding: 20px;
+}
+
+.promociones-text{
+    margin-top: 50px;
+    font-size: 50px;
+}
+
+.promociones-btn{
+    padding: 8px 20px;
+    background-color: #6d6b5f;
+    color: white;
+    border-radius: 10px;
+    margin-top: 50px;
+    height: 50px;
+}
+
+footer {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    border-top: 1px solid #e5e5e5;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-column {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-column h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #000;
+}
+
+.footer-column .social-links a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-column .social-links a:hover {
+    color: #000;
+}
+
+.footer-column .social-links i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.payment-methods img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .buscador {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .buscador input {
+        width: 100%;
+    }
+
+    .hero {
+        height: auto;
+        padding: 20px 0;
+        flex-direction: column;
+    }
+
+    .hero-boton {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        margin-top: 20px;
+        padding: 10px 20px;
+    }
+
+    .indicadores {
+        bottom: 10px;
+    }
+
+    .producto-grid {
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px;
+    }
+
+    .producto-tarjeta {
+        width: 100%;
+    }
+
+    .promociones {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+    }
+
+    .promociones-text {
+        font-size: 30px;
+        margin: 20px 0;
+    }
+
+    .promociones-btn {
+        margin: 0 auto;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        margin-bottom: 20px;
+    }
+}

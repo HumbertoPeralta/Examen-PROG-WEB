@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Roboto, Playfair Display;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #f4f2ce;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none; 
+}
+
+.buscador {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.buscador input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.image-gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+.image-gallery img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.main-image img {
+    width: 350px;
+    height: auto;
+}
+
+.product-info {
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.price {
+    font-size: 1.5em;
+    color: red;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: gray;
+    margin-left: 10px;
+}
+
+.size-selection {
+    margin-top: 20px;
+}
+
+.size-selection select {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.button {
+    margin-top: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1em;
+}
+
+.button:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .search-container {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .main-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .product-info {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .size-selection select {
+        width: 100%;
+    }
+}
+
