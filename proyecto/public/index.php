@@ -1,55 +1,22 @@
-
 <?php
-    include_once __DIR__.'/../src/views/layouts/header.php';
-    $producto = getBuys();
-?>
 
-<main>
-    <section class="hero">
-        <div class="hero-contenido">
-            <img src="<?=ASSETS_URL?>/img/pareja.PNG" alt="Imagen central"> 
-        </div>
+$request = $_SERVER['REQUEST_URI'];
 
-        <a class="hero-boton" href="<?=BASE_URL?>/../src/views/buys/details.php">Comprar</a>
+$request = strtok($request, '?');
 
-        <div class="indicadores">
-            <div class="activo"></div>
-            <div></div>
-            <div></div>
-            <div></div>
-         </div>
-    </section>
+switch($request){
+    case '/':
+        require_once __DIR__.'/../src/views/public/welcome.php';
+        break;
+    case '/login':
+        require_once __DIR__.'/login.php';
+        break;
+    case '/logout':
+        require_once __DIR__.'/../src/controllers/LogoutController.php';
+        break;
+    default:
+        http_response_code(404);
+        //Hacer una vista de 404
+        break;
 
-    <div class="producto-grid">
-        <div class="producto-tarjeta">
-            <img src="<?=ASSETS_URL?>/img/playera.png" alt="Playeras">
-            <p class="producto-nombre">Playeras</p>
-            <button class="producto-btn">Ver más</button>
-        </div>
-
-        <div class="producto-tarjeta">
-            <img src="<?=ASSETS_URL?>/img/pantalones.jpg" alt="Pantalones">
-            <p class="producto-nombre">Pantalones</p>
-            <button class="producto-btn">Ver más</button>
-        </div>
-
-        <div class="producto-tarjeta">
-            <img src="<?=ASSETS_URL?>/img/sudadera.jpg" alt="Sudadera">
-            <p class="producto-nombre">Sudadera</p>
-            <button class="producto-btn">Ver más</button>
-        </div>
-
-        <div class="producto-tarjeta">
-            <img src="<?=ASSETS_URL?>/img/camisas.jpg" alt="Camisas">
-            <p class="producto-nombre">Camisas</p>
-            <button class="producto-btn">Ver más</button>
-        </div>
-    </div>
-
-    <div class="promociones">
-        <p class="promociones-text">Promociones 50%</p>
-        <button class="promociones-btn"> Ver promociones</button>
-    </div>
-</main>
-
-<?php include '../src/views/layouts/footer.php'; ?>
+}
