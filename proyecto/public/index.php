@@ -20,8 +20,7 @@ switch($request){
         require_once __DIR__.'/../src/controllers/LogoutController.php';
         break;
     default:
-        http_response_code(404);
-        //Hacer una vista de 404
+        require_once __DIR__.'/../src/views/public/welcome.php';
         break;
 
 }
