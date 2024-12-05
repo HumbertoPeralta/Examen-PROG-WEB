@@ -296,6 +296,70 @@ footer {
     margin-right: 10px;
 }
 
+.title-container {
+    text-align: center;   
+    margin-top: 25px;     
+}
+
+.centered-title {
+    font-size: 40px;      
+    font-weight: bold;    
+    margin: 25px;            
+}
+
+/* Contenedor principal del grid */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Crea 3 columnas iguales */
+    gap: 20px;  /* Espacio entre las tarjetas */
+    padding: 20px;
+}
+
+/* Estilo de las tarjetas */
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.card img {
+    width: 100%;  /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
+    height: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.card h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.card p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.card p:last-child {
+    font-weight: bold;
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 768px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columnas en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .card-container {
+        grid-template-columns: 1fr;  /* 1 columna en pantallas muy pequeñas */
+    }
+}
+
+
 @media (max-width: 768px) {
 
     body {
