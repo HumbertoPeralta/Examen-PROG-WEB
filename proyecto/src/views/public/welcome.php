@@ -42,7 +42,7 @@
         <div class="producto-tarjeta">
             <img src="<?=ASSETS_URL?>/img/camisas.jpg" alt="Camisas">
             <p class="producto-nombre">Camisas</p>
-            <a class="producto-btn" href="<?=BASE_URL?>/../src/views/public/shirts/camisas.php">Ver más</a>
+            <a class="promociones-btn" href="<?=BASE_URL?>/../src/views/public/shirts/camisas.php">Ver más</a>
         </div>
     </div>
 
