@@ -17,11 +17,10 @@
             <ul>
                 <li><a class="menu-link" href="#">Categorías</a>
                     <ul class="submenu">
-                        <li><a href="#">Sudaderas</a></li>
-                        <li><a href="compra.HTML">Playeras</a></li>
-                        <li><a href="#">Pantalones</a></li>
-                        <li><a href="#">Camisas</a></li>
-                        <li><a href="#">Tenis</a></li>
+                        <li><a href="<?=BASE_URL?>/../src/views/public/hoodies/sudaderas.php">Sudaderas</a></li>
+                        <li><a href="<?=BASE_URL?>/../src/views/public/tshirts/playeras.php">Playeras</a></li>
+                        <li><a href="<?=BASE_URL?>/../src/views/public/pants/pantalones.php">Pantalones</a></li>
+                        <li><a href="<?=BASE_URL?>/../src/views/public/shirts/camisas.php">Camisas</a></li>
                     </ul>
                 </li>
             </ul>
