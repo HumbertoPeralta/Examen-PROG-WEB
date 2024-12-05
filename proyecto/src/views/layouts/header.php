@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=ASSETS_URL?>/css/style.css">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <title>Aestetik</title>
 </head>
@@ -27,6 +28,7 @@
         </nav>
 
         <a class="logo" href="<?=BASE_URL?>"> AESTETIK </a>
+        <!-- <img src="<?=BASE_URL?>/img/playera.png" alt="Playeras"> -->
 
         <div class="buscador">
             <input type="text" placeholder="Buscar...">

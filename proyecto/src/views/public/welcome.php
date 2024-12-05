@@ -12,12 +12,12 @@
 
         <a class="hero-boton" href="<?=BASE_URL?>/../src/views/public/buys/details.php">Comprar</a>
 
-        <div class="indicadores">
+<!--         <div class="indicadores">
             <div class="activo"></div>
             <div></div>
             <div></div>
             <div></div>
-         </div>
+         </div> -->
     </section>
 
     <div class="producto-grid">
