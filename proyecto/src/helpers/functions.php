@@ -24,15 +24,19 @@ function getBuys()
         return [];
     }
 }
-
-
-/* 
+ 
 function getTshirts()
 {
     $pdo = getPDO();
-    try{
-        $sql = "SELECT id_"
+    try {
+        $sql = "SELECT id_producto, nombre, precio, descripcion, talla, color, imagen, categoria FROM productos WHERE categoria = 'playeras'"; 
+        $stmt = $pdo->query($sql);  
+        $tshirts = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+        return $tshirts;
+    } catch (PDOException $e) {
+        error_log("Error al consultar la base de datos: " . $e->getMessage());
+        return [];
     }
 }
-*/
+
 
