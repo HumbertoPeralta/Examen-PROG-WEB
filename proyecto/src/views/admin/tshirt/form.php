@@ -15,35 +15,60 @@
     }
 ?>
 
-<div class="form-container">
-    <form action="<?=$route?>" method="POST" enctype="multipart/form-data">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br>
+<form method="POST" action="<?=SRC_URL?>/controllers/TshirtController.php" enctype="multipart/form-data">
+    <div class="form-container">
+        <h2>Agregar Playera</h2>
 
-        <label for="precio">Precio:</label>
-        <input type="number" id="precio" name="precio" step="0.01" required><br>
+        <div class="input-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
 
-        <label for="descripcion">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" required></textarea><br>
+        <div class="input-group">
+            <label for="precio">Precio:</label>
+            <input type="number" id="precio" name="precio" step="0.01" required>
+        </div>
 
-        <label for="talla">Talla:</label>
-        <input type="text" id="talla" name="talla" required><br>
+        <div class="input-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" required></textarea>
+        </div>
 
-        <label for="color">Color:</label>
-        <input type="text" id="color" name="color" required><br>
+        <div class="input-group">
+            <label for="talla">Talla:</label>
+            <select id="talla" name="talla" required>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>
+        </div>
 
-        <label for="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" ><br>
+        <div class="input-group">
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" required>
+        </div>
 
-        <label for="categoria">Categoría:</label>
-        <input type="text" id="categoria" name="categoria"><br>
+        <div class="input-group">
+            <label for="imagen">Imagen:</label>
+            <input type="file" id="imagen" name="imagen" required>
+        </div>
 
-        <button type="submit">Agregar Playera</button>
+        <div class="input-group">
+            <label for="categoria">Categoría:</label>
+            <select id="categoria" name="categoria" required>
+                <option value="playera">Playera</option>
+                <option value="camisa">Camisa</option>
+                <option value="pantalon">Pantalon</option>
+                <option value="sudadera">Sudadera</option>
+            </select>
+        </div>
 
+        <button type="submit" class="submit-btn">Agregar Playera</button>
+    
         <?php 
             if(isset($_SESSION['success'])): 
             ?>
-            
                 <p class="success"><?php echo htmlspecialchars($_SESSION['success'])?></p>
             <?php 
             $_SESSION['success'] = '';
@@ -63,4 +88,7 @@
                 $_SESSION['errors'] = [];
             endif; 
             ?>
+    
+    </div>
+
 </form>

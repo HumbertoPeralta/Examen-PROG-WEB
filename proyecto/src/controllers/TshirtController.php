@@ -58,7 +58,7 @@ function store() {
     $pdo = getPDO(); // Obtiene la conexión PDO.
 
     try {
-        $sql = "INSERT INTO productos (nombre,precio,descripcion,talla,color,imagen,categoria) VALUES (:nombre,:precio,:descripcion,:talla,:color,:imagen,:categoria)";
+        $sql = "INSERT INTO productos (nombre,precio,descripcion,talla,color,categoria,imagen) VALUES (:nombre,:precio,:descripcion,:talla,:color,:categoria,:imagen)";
         $stmt = $pdo->prepare($sql); // Prepara la consulta SQL.
         $data = [
             'nombre' => $_POST['nombre'], // Datos del formulario.
@@ -67,13 +67,12 @@ function store() {
             'talla' => $_POST['talla'],
             'color' => $_POST['color'],
             'categoria' => $_POST['categoria'],
-            'image' => $imageName != null ? 'careers/'.$imageName : null // Guarda la URL de la imagen si existe.
+            'imagen' => $imageName != null ? 'tshirts/'.$imageName : null // Guarda la URL de la imagen si existe.
         ];
 
         $stmt->execute($data); // Ejecuta la consulta.
         
         set_success_message('Se ha agregado la playera.'); // Mensaje de éxito.
-        cache_careers(); // Actualiza la caché (si aplica).
         redirect_back(); // Redirige al usuario.
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos: " . $e->getMessage()); // Registra el error.
@@ -105,7 +104,8 @@ function update($id) {
             'descripcion' => $_POST['descripcion'],
             'talla' => $_POST['talla'],
             'color' => $_POST['color'],
-            'imagen' => $imageName ? 'tshirts/'.$imageName : $careerData['imagen'] // Usa la nueva imagen si existe.
+            'categoria' => $_POST['categoria'],
+            'imagen' => $imageName ? 'tshirts/'.$imageName : $tshirtData['imagen'] // Usa la nueva imagen si existe.
         ];
 
         $stmt->execute($data); // Ejecuta la consulta.
@@ -129,8 +129,8 @@ function update($id) {
 // Guarda una imagen en el servidor.
 function saveImage()
 {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $image = $_FILES['image'];
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
+        $image = $_FILES['imagen'];
 
         // Validar tipo de archivo (solo imágenes).
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
