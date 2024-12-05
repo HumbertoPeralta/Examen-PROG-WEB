@@ -8,6 +8,6 @@ return [
         'host' => '127.0.0.1',
         'name' => 'aestetik_bd',
         'user' => 'root',
-        'password' => 'HPM22'
+        'password' => ''
     ]
 ];

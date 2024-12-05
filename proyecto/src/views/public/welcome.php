@@ -30,19 +30,19 @@
         <div class="producto-tarjeta">
             <img src="<?=ASSETS_URL?>/img/pantalones.jpg" alt="Pantalones">
             <p class="producto-nombre">Pantalones</p>
-            <button class="producto-btn">Ver más</button>
+            <a class="producto-btn" href="<?=BASE_URL?>/../src/views/public/pants/pantalones.php">Ver más</a>
         </div>
 
         <div class="producto-tarjeta">
             <img src="<?=ASSETS_URL?>/img/sudadera.jpg" alt="Sudadera">
             <p class="producto-nombre">Sudadera</p>
-            <button class="producto-btn">Ver más</button>
+            <a class="producto-btn" href="<?=BASE_URL?>/../src/views/public/hoodies/sudaderas.php">Ver más</a>
         </div>
 
         <div class="producto-tarjeta">
             <img src="<?=ASSETS_URL?>/img/camisas.jpg" alt="Camisas">
             <p class="producto-nombre">Camisas</p>
-            <button class="producto-btn">Ver más</button>
+            <a class="producto-btn" href="<?=BASE_URL?>/../src/views/public/shirts/camisas.php">Ver más</a>
         </div>
     </div>
 

@@ -29,7 +29,7 @@ function getTshirts()
 {
     $pdo = getPDO();
     try {
-        $sql = "SELECT id_producto, nombre, precio, descripcion, talla, color, imagen, categoria FROM productos WHERE categoria = 'playeras'"; 
+        $sql = "SELECT id_producto, nombre, precio, descripcion, talla, color, imagen, categoria FROM productos WHERE categoria = 'playera'"; 
         $stmt = $pdo->query($sql);  
         $tshirts = $stmt->fetchAll(PDO::FETCH_ASSOC);  
         return $tshirts;
@@ -39,4 +39,44 @@ function getTshirts()
     }
 }
 
+function getPants()
+{
+    $pdo = getPDO();
+    try {
+        $sql = "SELECT id_producto, nombre, precio, descripcion, talla, color, imagen, categoria FROM productos WHERE categoria = 'pantalon'"; 
+        $stmt = $pdo->query($sql);  
+        $pants = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+        return $pants;
+    } catch (PDOException $e) {
+        error_log("Error al consultar la base de datos: " . $e->getMessage());
+        return [];
+    }
+}
 
+function getHoodies()
+{
+    $pdo = getPDO();
+    try {
+        $sql = "SELECT id_producto, nombre, precio, descripcion, talla, color, imagen, categoria FROM productos WHERE categoria = 'sudadera'"; 
+        $stmt = $pdo->query($sql);  
+        $hoodies = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+        return $hoodies;
+    } catch (PDOException $e) {
+        error_log("Error al consultar la base de datos: " . $e->getMessage());
+        return [];
+    }
+}
+
+function getShirts()
+{
+    $pdo = getPDO();
+    try {
+        $sql = "SELECT id_producto, nombre, precio, descripcion, talla, color, imagen, categoria FROM productos WHERE categoria = 'camisa'"; 
+        $stmt = $pdo->query($sql);  
+        $shirts = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+        return $shirts;
+    } catch (PDOException $e) {
+        error_log("Error al consultar la base de datos: " . $e->getMessage());
+        return [];
+    }
+}
