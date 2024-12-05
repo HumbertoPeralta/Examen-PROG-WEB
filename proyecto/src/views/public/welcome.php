@@ -24,7 +24,7 @@
         <div class="producto-tarjeta">
             <img src="<?=ASSETS_URL?>/img/playera.png" alt="Playeras">
             <p class="producto-nombre">Playeras</p>
-            <button class="producto-btn">Ver más</button>
+            <a class="producto-btn" href="<?=BASE_URL?>/../src/views/public/tshirts/playeras.php">Ver más</a>
         </div>
 
         <div class="producto-tarjeta">

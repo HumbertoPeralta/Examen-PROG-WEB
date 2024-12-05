@@ -25,3 +25,14 @@ function getBuys()
     }
 }
 
+
+/* 
+function getTshirts()
+{
+    $pdo = getPDO();
+    try{
+        $sql = "SELECT id_"
+    }
+}
+*/
+

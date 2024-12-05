@@ -5,8 +5,8 @@ return [
     'assets_url' => 'http://localhost/Examen-PROG-WEB/proyecto/public/assets',
     'src_url' => 'http://localhost/Examen-PROG-WEB/src',
     'db' => [
-        'host' => '127.0.0.2',
-        'name' => 'productos',
+        'host' => '127.0.0.1',
+        'name' => 'aestetik_bd',
         'user' => 'root',
         'password' => 'HPM22'
     ]
