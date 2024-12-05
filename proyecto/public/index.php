@@ -10,7 +10,7 @@ $request = $_SERVER['REQUEST_URI'];
 $request = strtok($request, '?');
 
 switch($request){
-    case '/':
+    case URL . '/':
         require_once __DIR__.'/../src/views/public/welcome.php';
         break;
     case '/login':
@@ -20,7 +20,7 @@ switch($request){
         require_once __DIR__.'/../src/controllers/LogoutController.php';
         break;
     default:
-        require_once __DIR__.'/../src/views/public/welcome.php';
-        break;
+        http_response_code(404);        
+    break;
 
 }
