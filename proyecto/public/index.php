@@ -13,10 +13,10 @@ switch($request){
     case URL . '/':
         require_once __DIR__.'/../src/views/public/welcome.php';
         break;
-    case '/login':
+    case URL . '/login':
         require_once __DIR__.'/login.php';
         break;
-    case '/logout':
+    case URL . '/logout':
         require_once __DIR__.'/../src/controllers/LogoutController.php';
         break;
     default:
