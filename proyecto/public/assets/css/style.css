@@ -432,3 +432,8 @@ footer {
         margin-bottom: 20px;
     }
 }
+
+.small-img {
+    width: 2px;
+    height: auto; /* Mantiene las proporciones */
+}

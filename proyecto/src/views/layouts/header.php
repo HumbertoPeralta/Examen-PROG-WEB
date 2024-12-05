@@ -29,10 +29,13 @@
 
         <a class="logo" href="<?=BASE_URL?>"> AESTETIK </a>
 
-        <a class="logo" href="<?=BASE_URL?>/login"> Login </a>
+        <a href="<?=BASE_URL?>/login">
+        <img src="<?=ASSETS_URL?>/img/user.svg" alt="Imagen" class="small-img">
+        </a>
+        <!-- <a class="logo" href="<?=BASE_URL?>/login"> Login </a> -->
 
-        <div class="buscador">
+        <!-- <div class="buscador">
             <input type="text" placeholder="Buscar...">
-        </div>
+        </div> -->
 
     </header>
