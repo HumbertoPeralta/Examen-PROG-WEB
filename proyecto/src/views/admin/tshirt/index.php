@@ -5,6 +5,11 @@ require __DIR__.'/../../../controllers/TshirtController.php';
 $tshirts = index();
 ?>
 
+
+<div class=>
+    <h1>Panel administrador</h1>
+</div>
+
 <div class="table-container">
         <div class="table-container-header">
             <h1 class="h1-table">Listado de playeras</h1>
@@ -17,8 +22,10 @@ $tshirts = index();
                     <th>Nombre</th>
                     <th>Precio</th>
                     <th>Descripción</th>
+                    <th>Talla</th>
                     <th>color</th>
-                    <th>Acciones</th>
+                    <th>Imagen</th>
+                    <th>Categoria</th>
                 </tr>
             </thead>
             <tbody>

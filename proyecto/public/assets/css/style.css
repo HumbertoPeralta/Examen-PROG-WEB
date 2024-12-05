@@ -346,6 +346,209 @@ footer {
     font-weight: bold;
 }
 
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.h1-table {
+    display: inline-block;
+    padding: 1%;
+}
+
+.table-container {
+    width: calc(100% - 40px);
+    margin: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table-container-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4A90E2;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.actions a {
+    background-color: #4A90E2;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.actions a:hover {
+    background-color: #357ABD;
+}
+
+.add-button {
+    background-color: #28a745;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 20px;
+    display: inline-block;
+    align-self: flex-end;
+    text-align: center;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+.form-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    width: 600px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 2% auto;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.form-group textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.form-group select {
+    height: 40px;
+}
+
+.form-group button {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-family: 'Fira Sans', 'Arial', sans-serif;
+}
+
+.form-group button:hover {
+    background-color: #357ABD;
+}
+
+.form-group .submit-button {
+    background-color: #28a745;
+}
+
+.form-group .submit-button:hover {
+    background-color: #218838;
+}
+
+.form-group a {
+    background-color: #ddd;
+    color: black;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin: 0 0 0 2%;
+}
+
+.form-group a:hover {
+    background-color: #c0bdbd;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #4A90E2;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+}
+
+.form-footer a {
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+form .success {
+    color: #218838;
+    text-align: right;
+}
+
+form .error {
+    color: #ba1b23;
+    text-align: right;
+}
+
 @media (max-width: 768px) {
 
     body {
