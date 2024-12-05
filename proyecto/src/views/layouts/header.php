@@ -15,16 +15,7 @@
     <header>
         <nav>
             <ul>
-                <li><a class="menu-link" href="#">Hombres</a>
-                    <ul class="submenu">
-                        <li><a href="#">Sudaderas</a></li>
-                        <li><a href="compra.HTML">Playeras</a></li>
-                        <li><a href="#">Pantalones</a></li>
-                        <li><a href="#">Camisas</a></li>
-                        <li><a href="#">Tenis</a></li>
-                    </ul>
-                </li>
-                <li><a class="menu-link" href="#">Mujeres</a>
+                <li><a class="menu-link" href="#">Categorías</a>
                     <ul class="submenu">
                         <li><a href="#">Sudaderas</a></li>
                         <li><a href="compra.HTML">Playeras</a></li>
