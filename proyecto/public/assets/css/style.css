@@ -171,9 +171,14 @@ li:hover .submenu{
 .producto-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
+    gap: 40px; /* Aumenta el espacio entre tarjetas */
     padding: 30px;
     justify-items: center;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    padding: 30px;
+    justify-items: center; */
 }
 
 .producto-tarjeta{
@@ -182,7 +187,13 @@ li:hover .submenu{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
-    width: 350px;
+    width: 400px;
+    /* background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    width: 400px; */
 }
 
 .producto-tarjeta img {
@@ -192,17 +203,27 @@ li:hover .submenu{
 }
 
 .producto-tarjeta .producto-nombre {
-    margin-top: 10px;
+    margin-bottom: 20px; /* Añade espacio debajo del nombre del producto */
     font-size: 18px;
     color: #333;
+/*     margin-top: 10px;
+    font-size: 18px;
+    color: #333; */
 }
 
 .producto-tarjeta .producto-btn {
-    margin-top: 10px;
+    margin-top: 40px; /* Ya está configurado */
+    margin-bottom: 20px; /* Agrega espacio debajo del botón */
     padding: 10px 20px;
     background-color: #333333;
     color: white;
-    border-radius: 20px;
+    border-radius: 30px;
+    display: inline-block; /* Asegura que se comporte como botón */
+/*     margin-top: 40px;
+    padding: 10px 20px;
+    background-color: #333333;
+    color: white;
+    border-radius: 30px; */
 }
 
 .promociones{
