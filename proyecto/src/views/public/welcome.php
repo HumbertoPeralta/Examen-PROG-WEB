@@ -10,7 +10,7 @@
             <img src="<?=ASSETS_URL?>/img/pareja.PNG" alt="Imagen central"> 
         </div>
 
-        <a class="hero-boton" href="<?=BASE_URL?>/../src/views/buys/details.php">Comprar</a>
+        <a class="hero-boton" href="<?=BASE_URL?>/../src/views/public/buys/details.php">Comprar</a>
 
         <div class="indicadores">
             <div class="activo"></div>
