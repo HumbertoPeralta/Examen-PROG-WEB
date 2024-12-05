@@ -1,8 +1,8 @@
 <?php 
 include_once __DIR__.'/../../layouts/header.php';
 require_once __DIR__ . '/../../../helpers/auth.php';
-require __DIR__.'/../../../controllers/TshirtController.php';
-$tshirts = index();
+require __DIR__.'/../../../controllers/PantsController.php';
+$pants = index();
 ?>
 
 
@@ -12,8 +12,8 @@ $tshirts = index();
 
 <div class="table-container">
         <div class="table-container-header">
-            <h1 class="h1-table">Listado de playeras</h1>
-            <a href="<?=SRC_URL?>/views/admin/tshirt/form.php" class="add-button">Añadir playera</a>
+            <h1 class="h1-table">Listado de pantalones</h1>
+            <a href="<?=SRC_URL?>/views/admin/pants/form.php" class="add-button">Añadir playera</a>
         </div>
 
         <table>
@@ -29,15 +29,15 @@ $tshirts = index();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($tshirts as $tshirt): ?>
+                <?php foreach($pants as $pant): ?>
                 <tr>
-                    <td><?=$tshirt['nombre']?></td>
-                    <td><?=$tshirt['precio']?></td>
-                    <td><?=$tshirt['descripcion']?></td>
-                    <td><?=$tshirt['talla']?></td>
-                    <td><?=$tshirt['color']?></td>
-                    <td><?=$tshirt['imagen']?></td>
-                    <td><?=$tshirt['categoria']?></td>
+                    <td><?=$pant['nombre']?></td>
+                    <td><?=$pant['precio']?></td>
+                    <td><?=$pant['descripcion']?></td>
+                    <td><?=$pant['talla']?></td>
+                    <td><?=$pant['color']?></td>
+                    <td><?=$pant['imagen']?></td>
+                    <td><?=$pant['categoria']?></td>
                 </tr>
                 <?php endforeach; ?>     
             </tbody>

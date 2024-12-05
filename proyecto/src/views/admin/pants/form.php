@@ -4,13 +4,13 @@
     require __DIR__.'/../../../controllers/TshirtController.php';
     
     $title = 'Añadir';
-    $tshirt = null;
-    $route = SRC_URL.'/controllers/TshirtController.php';
+    $pant = null;
+    $route = SRC_URL.'/controllers/TshirtsController.php';
 
     if(isset($_GET['producto_id'])){
         $title = 'Editar';
         $id = filter_input(INPUT_GET, 'producto_id', FILTER_SANITIZE_STRING);
-        $tshirt = show($id);
+        $pant = show($id);
         $route.="?producto_id=$id";
     }
 ?>
@@ -33,10 +33,10 @@
         <input type="text" id="color" name="color" required><br>
 
         <label for="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" ><br>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required><br>
 
         <label for="categoria">Categoría:</label>
-        <input type="text" id="categoria" name="categoria"><br>
+        <input type="text" id="categoria" name="categoria" value="tshirt" readonly><br>
 
         <button type="submit">Agregar Playera</button>
 

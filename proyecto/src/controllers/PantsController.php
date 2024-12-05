@@ -15,10 +15,10 @@ function index()
     $pdo = getPDO(); 
 
     try {
-        $sql = "SELECT nombre,precio,descripcion,talla,color,imagen,categoria  FROM productos WHERE categoria = 'playera'";
+        $sql = "SELECT nombre,precio,descripcion,talla,color,imagen,categoria  FROM productos WHERE categoria = 'pantalon'";
         $stmt = $pdo->query($sql);
-        $tshirts = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-        return $tshirts; 
+        $pants = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        return $pants; 
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos". $e->getMessage());
         return []; 
@@ -39,13 +39,13 @@ function show($id)
         $sql = "SELECT * FROM productos WHERE id = :id LIMIT 1"; 
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['id' => $id]); 
-        $tshirtsData = $stmt->fetch(PDO::FETCH_ASSOC); 
+        $pantsData = $stmt->fetch(PDO::FETCH_ASSOC); 
 
         if (!$tshirtsData) {
             return []; 
         }
 
-        return $tshirtsData; 
+        return $pantsData; 
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos: " . $e->getMessage());
         return []; 
@@ -67,12 +67,12 @@ function store() {
             'talla' => $_POST['talla'],
             'color' => $_POST['color'],
             'categoria' => $_POST['categoria'],
-            'image' => $imageName != null ? 'careers/'.$imageName : null // Guarda la URL de la imagen si existe.
+            'image' => $imageName != null ? 'pants/'.$imageName : null // Guarda la URL de la imagen si existe.
         ];
 
         $stmt->execute($data); // Ejecuta la consulta.
         
-        set_success_message('Se ha agregado la playera.'); // Mensaje de éxito.
+        set_success_message('Se ha agregado la palyera.'); // Mensaje de éxito.
         cache_careers(); // Actualiza la caché (si aplica).
         redirect_back(); // Redirige al usuario.
     } catch (PDOException $e) {
@@ -84,7 +84,7 @@ function store() {
 // Actualiza una carrera existente.
 function update($id) {
     $pdo = getPDO(); // Obtiene la conexión PDO.
-    $tshirtsData = show($id); // Obtiene los datos de la carrera existente.
+    $pantsData = show($id); // Obtiene los datos de la carrera existente.
     $imageName = saveImage(); // Guarda la nueva imagen si se subió.
 
     try {
@@ -110,8 +110,8 @@ function update($id) {
 
         $stmt->execute($data); // Ejecuta la consulta.
         // Borra la imagen previa si se subió una nueva.
-        if ($imageName && $tshirtsData['imagen']) {
-            $oldImagePath = __DIR__ . '/../../public/assets/img/' . $tshirtData['imagen'];
+        if ($imageName && $pantsData['imagen']) {
+            $oldImagePath = __DIR__ . '/../../public/assets/img/' . $pantsData['imagen'];
             if (file_exists($oldImagePath)) 
                 unlink($oldImagePath); // Elimina la imagen antigua.
         }
