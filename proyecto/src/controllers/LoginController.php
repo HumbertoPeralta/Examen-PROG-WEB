@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($username == 'admin' && $password == 'password123') {
         $_SESSION['user'] = $username;
-        header('Location: '.BASE_URL.'/tshirt');
+        header('Location: '.BASE_URL.'/careers');
         exit;
     } else {
         set_error_message_redirect('Error al iniciar sesión');

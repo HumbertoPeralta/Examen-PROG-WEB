@@ -30,25 +30,25 @@ function show($id)
     $id = htmlspecialchars($id); 
 
     if ($id === null) {
-        return []; // Retorna un arreglo vacío si el ID no es válido.
+        return []; 
     }
 
-    $pdo = getPDO(); // Obtiene la conexión PDO.
+    $pdo = getPDO(); 
 
     try {
-        $sql = "SELECT * FROM productos WHERE id = :id LIMIT 1"; // Consulta SQL para buscar una carrera específica.
+        $sql = "SELECT * FROM productos WHERE id = :id LIMIT 1"; 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['id' => $id]); // Ejecuta la consulta con el ID.
-        $tshirtsData = $stmt->fetch(PDO::FETCH_ASSOC); // Obtiene el resultado.
+        $stmt->execute(['id' => $id]); 
+        $tshirtsData = $stmt->fetch(PDO::FETCH_ASSOC); 
 
         if (!$tshirtsData) {
-            return []; // Si no encuentra datos, retorna un arreglo vacío.
+            return []; 
         }
 
-        return $tshirtsData; // Retorna los datos de la carrera.
+        return $tshirtsData; 
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos: " . $e->getMessage());
-        return []; // En caso de error, retorna un arreglo vacío.
+        return []; 
     }
 }
 
