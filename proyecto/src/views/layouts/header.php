@@ -28,7 +28,8 @@
         </nav>
 
         <a class="logo" href="<?=BASE_URL?>"> AESTETIK </a>
-        <!-- <img src="<?=BASE_URL?>/img/playera.png" alt="Playeras"> -->
+
+        <a class="logo" href="<?=BASE_URL?>/login"> Login </a>
 
         <div class="buscador">
             <input type="text" placeholder="Buscar...">

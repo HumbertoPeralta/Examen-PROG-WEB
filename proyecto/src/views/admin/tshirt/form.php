@@ -4,13 +4,13 @@
     require __DIR__.'/../../../controllers/TshirtController.php';
     
     $title = 'Añadir';
-    $career = null;
-    $route = SRC_URL.'/controllers/careerController.php';
+    $tshirt = null;
+    $route = SRC_URL.'/controllers/TshirtsController.php';
 
     if(isset($_GET['producto_id'])){
         $title = 'Editar';
         $id = filter_input(INPUT_GET, 'producto_id', FILTER_SANITIZE_STRING);
-        $career = show($id);
+        $tshirt = show($id);
         $route.="?producto_id=$id";
     }
 ?>

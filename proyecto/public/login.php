@@ -1,5 +1,6 @@
 <?php 
     require __DIR__.'/../src/helpers/functions.php';
+    require_once __DIR__.'/../src/controllers/LoginController.php';
 ?>
 
 <!DOCTYPE html>
