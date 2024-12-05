@@ -10,20 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 }
 
-function index()
+function index($categoria)
 {
-    $pdo = getPDO(); 
+    $pdo = getPDO();
 
     try {
-        $sql = "SELECT nombre,precio,descripcion,talla,color,imagen,categoria  FROM productos WHERE categoria = 'playera'";
-        $stmt = $pdo->query($sql);
-        $tshirts = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-        return $tshirts; 
+        $sql = "SELECT nombre, precio, descripcion, talla, color, imagen, categoria 
+                FROM productos 
+                WHERE categoria = :categoria";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['categoria' => $categoria]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
-        error_log("Error al consultar la base de datos". $e->getMessage());
-        return []; 
+        error_log("Error al consultar la base de datos: " . $e->getMessage());
+        return [];
     }
 }
+
 
 function show($id) 
 {
@@ -39,13 +42,13 @@ function show($id)
         $sql = "SELECT * FROM productos WHERE id = :id LIMIT 1"; 
         $stmt = $pdo->prepare($sql);
         $stmt->execute(['id' => $id]); 
-        $tshirtsData = $stmt->fetch(PDO::FETCH_ASSOC); 
+        $categoriesData = $stmt->fetch(PDO::FETCH_ASSOC); 
 
-        if (!$tshirtsData) {
+        if (!$categoriesData) {
             return []; 
         }
 
-        return $tshirtsData; 
+        return $categoriesData; 
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos: " . $e->getMessage());
         return []; 
@@ -83,7 +86,7 @@ function store() {
 // Actualiza una carrera existente.
 function update($id) {
     $pdo = getPDO(); // Obtiene la conexión PDO.
-    $tshirtsData = show($id); // Obtiene los datos de la carrera existente.
+    $categoriesData = show($id); // Obtiene los datos de la carrera existente.
     $imageName = saveImage(); // Guarda la nueva imagen si se subió.
 
     try {
@@ -105,13 +108,13 @@ function update($id) {
             'talla' => $_POST['talla'],
             'color' => $_POST['color'],
             'categoria' => $_POST['categoria'],
-            'imagen' => $imageName ? 'tshirts/'.$imageName : $tshirtData['imagen'] // Usa la nueva imagen si existe.
+            'imagen' => $imageName ? 'tshirts/'.$imageName : $categoriesData['imagen'] // Usa la nueva imagen si existe.
         ];
 
         $stmt->execute($data); // Ejecuta la consulta.
         // Borra la imagen previa si se subió una nueva.
-        if ($imageName && $tshirtsData['imagen']) {
-            $oldImagePath = __DIR__ . '/../../public/assets/img/' . $tshirtData['imagen'];
+        if ($imageName && $categoriesData['imagen']) {
+            $oldImagePath = __DIR__ . '/../../public/assets/img/' . $categoriesData['imagen'];
             if (file_exists($oldImagePath)) 
                 unlink($oldImagePath); // Elimina la imagen antigua.
         }
