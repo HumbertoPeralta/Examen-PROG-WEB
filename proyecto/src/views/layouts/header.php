@@ -1,7 +1,7 @@
 <?php 
     require __DIR__.'/../../helpers/functions.php';
 ?>
-
+<link rel="stylesheet" href="<?= ASSETS_URL ?>/css/styleHeader.css">
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -38,5 +38,12 @@
         <!-- <div class="buscador">
             <input type="text" placeholder="Buscar...">
         </div> -->
+        <script>
+    // Toggle del menú para móviles
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        var menu = document.querySelector('nav ul');
+        menu.classList.toggle('active');
+    });
+</script>
 
     </header>
