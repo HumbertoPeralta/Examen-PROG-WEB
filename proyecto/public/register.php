@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../src/helpers/functions.php';
-require_once __DIR__ . '/../src/controllers/LoginController.php';
+require_once __DIR__ . '/../src/controllers/RegisterController.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@ require_once __DIR__ . '/../src/controllers/LoginController.php';
 
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Registro</title>
     <link rel="stylesheet" href="<?= ASSETS_URL ?>/css/styleLogin.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,34 +36,46 @@ require_once __DIR__ . '/../src/controllers/LoginController.php';
 
         ?>
 
-        <form method="POST" action="<?= SRC_URL ?>/controllers/LoginController.php">
+        <form id="registrationForm" method="POST" action="<?= SRC_URL ?>/controllers/RegisterController.php">
 
             <div class="input-group">
-                <label for="username">Nombre</label>
-                <input type="text" id="username" name="username" required>
+                <label for="nombre_usuario">Nombre</label>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+                <small id="nombreError" style="color: red; display: none;">El nombre es obligatorio.</small>
             </div>
             <div class="input-group">
-                <label for="username">Apellido</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="username">Correo electronico</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Confirmar Contraseña</label>
-                <input type="password" id="password" name="password" required>
+                <label for="apellido_paterno">Apellido:</label>
+                <input type="text" id="apellido_paterno" name="apellido_paterno" required>
+                <small id="apellidoError" style="color: red; display: none;">El apellido es obligatorio.</small>
             </div>
 
-            <button type="submit">Entrar</button>
+            <div>
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" required pattern="\d{10}">
+                <small id="telefonoError" style="color: red; display: none;">El teléfono debe tener 10 dígitos.</small>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Correo electronico</label>
+                <input type="email" id="email" name="email" required>
+                <small id="emailError" style="color: red; display: none;">Correo no válido o ya registrado.</small>
+            </div>
+            <div class="input-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required minlength="6">
+                <small id="passwordError" style="color: red; display: none;">La contraseña debe tener al menos 6 caracteres.</small>
+            </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirmar Contraseña:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <small id="confirmPasswordError" style="color: red; display: none;">Las contraseñas no coinciden.</small>
+            </div>
+
+            <button type="submit">Registrarme</button>
 
             </div>
         </form>
-
+        <script src="<?=ASSETS_URL ?>/js/validations.js"></script>
     </div>
 
 </body>
