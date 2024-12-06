@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 }
 
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['usuario'])) {
 
     header('Location: '.BASE_URL.'/login');
 

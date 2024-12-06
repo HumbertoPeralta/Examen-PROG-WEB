@@ -31,8 +31,13 @@
         <a class="logo" href="<?=BASE_URL?>"> AESTETIK </a>
 
          <div class="auth-buttons">
-            <a class="login-button" href="<?=BASE_URL?>/login">Iniciar sesión</a>
-            <a class="register-button" href="<?=BASE_URL?>/../public/register.php">Registro</a>
+            <?php if (isset($_SESSION['usuario']) && is_array($_SESSION['usuario'])): ?>
+                <li><a class="login-button" href="#"><?= htmlspecialchars($_SESSION['usuario']['nombre_usuario']); ?></a></li>
+                <li><a class="login-button" href="<?=SRC_URL?>/controllers/LogoutController.php">Cerrar sesión</a></li>
+            <?php else: ?>
+                <li><a class="login-button" href="<?=BASE_URL?>/login">Iniciar sesión</a></li>
+                <li><a class="register-button" href="<?=BASE_URL?>/../public/register.php">Registrarse</a></li>
+            <?php endif; ?>
         </div>
 
 </header>

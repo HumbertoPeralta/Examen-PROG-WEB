@@ -28,9 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Correo o contraseña incorrectos.');
     }
 
-    $_SESSION['id_usuario'] = $user['id_usuario'];
-    $_SESSION['nombre_usuario'] = $user['nombre_usuario'];
-    $_SESSION['tipo'] = $user['tipo'];
+    $_SESSION['usuario'] = [
+        'id_usuario' => $user['id_usuario'], 
+        'nombre_usuario' => $user['nombre_usuario'],
+        'tipo' => $user['tipo'], 
+    ];
 
     if ($user['tipo'] === 'administrador') {
         header('Location:' .BASE_URL. '/admin'); 
