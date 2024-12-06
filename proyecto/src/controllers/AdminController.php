@@ -52,28 +52,39 @@ function show($id)
     }
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $producto_id = filter_input(INPUT_POST, 'id_producto', FILTER_SANITIZE_NUMBER_INT);
+function delete($id_producto) {
+    $pdo = getPDO();  
 
-    if ($producto_id) {
-        $pdo = getPDO();
-        try {
-            $sql = "DELETE FROM productos WHERE id = :id";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute(['id' => $producto_id]);
+    try {
+        $sql = "DELETE FROM productos WHERE id_producto = :id_producto";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['id_producto' => $id_producto]);
 
-            $_SESSION['success'] = 'Producto eliminado con éxito.';
-        } catch (PDOException $e) {
-            error_log("Error al eliminar producto: " . $e->getMessage());
-            $_SESSION['errors'] = ['Error al eliminar el producto.'];
+        $categoriesData = show($id_producto); 
+        if ($categoriesData && isset($categoriesData['imagen'])) {
+            $oldImagePath = __DIR__ . '/../../public/assets/img/' . $categoriesData['imagen'];
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);  
+            }
         }
-    } else {
-        $_SESSION['errors'] = ['ID del producto inválido.'];
+
+        set_success_message('Producto eliminado con éxito.');  
+    } catch (PDOException $e) {
+        error_log("Error al eliminar el producto: " . $e->getMessage());  
+        set_error_message_redirect('No se pudo eliminar el producto.'); 
     }
 
-    header('Location: index.php');
-    exit;
+    redirect_back();
 }
+
+if (isset($_GET['delete_id'])) {
+    $id_producto = filter_input(INPUT_GET, 'delete_id', FILTER_SANITIZE_NUMBER_INT);
+
+    if ($id_producto && is_numeric($id_producto)) {
+        delete($id_producto);  
+    }
+}
+
 
 function store() {
     $imageName = saveImage(); 
@@ -103,7 +114,6 @@ function store() {
     }
 }
 
-// Actualiza una carrera existente.
 function update($id) {
     $pdo = getPDO(); // Obtiene la conexión PDO.
     $categoriesData = show($id); // Obtiene los datos de la carrera existente.
@@ -149,7 +159,6 @@ function update($id) {
     
 }
 
-// Guarda una imagen en el servidor.
 function saveImage()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
