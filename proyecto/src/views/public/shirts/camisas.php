@@ -9,22 +9,23 @@ include_once  __DIR__ .'../../../layouts/header.php';
 
 <?php
 
-$shirts = getShirts();
+$Shirts = getShirts();
 
-if (count($shirts) > 0) {
+if (count($Shirts) > 0) {
     echo '<div class="card-container">';
-    foreach ($shirts as $shirt) {
+    foreach ($Shirts as $Shirt) {
+        $imagePath = ASSETS_URL . '/img/' . htmlspecialchars($Shirt['imagen']);
         echo '<div class="card">';
-        echo '<img src="' . htmlspecialchars($shirt['imagen']) . '" alt="' . htmlspecialchars($shirt['nombre']) . '">';
-        echo "<h3>" .($shirt['nombre']) . "</h3>";
-        echo "<p>Precio: $" . number_format($shirt['precio'], 2) . "</p>";
+        echo '<img src="' . $imagePath . '" alt="' . htmlspecialchars($Shirt['nombre']) . '">';
+        echo "<h3>" . htmlspecialchars($Shirt['nombre']) . "</h3>";
+        echo "<p>Precio: $" . number_format($Shirt['precio'], 2) . "</p>";
         echo '</div>';
     }
+    echo '</div>';
 } else {
     echo "<p>No hay productos disponibles.</p>";
 }
 ?>
-</div>
 
 <?php
 include_once  __DIR__ .'../../../layouts/footer.php';

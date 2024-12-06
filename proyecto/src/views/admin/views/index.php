@@ -7,10 +7,13 @@ $categoriaSeleccionada = isset($_GET['categoria']) ? $_GET['categoria'] : 'playe
 
 $categorias = index($categoriaSeleccionada);
 
+/*  
 if ($_SESSION['tipo'] !== 'administrador') {
     header('Location: /index.php'); 
     exit;
 }
+*/
+
 ?>
 
 <div>
