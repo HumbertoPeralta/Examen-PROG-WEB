@@ -16,6 +16,11 @@ if (isset($_GET['producto_id'])) {
 }
 ?>
 
+<a href="javascript:history.back()" >
+    <img src="<?= ASSETS_URL ?>/img/arrow-narrow-left.svg" alt="Imagen">
+</a>
+
+
 <form method="POST" action="<?= htmlspecialchars($route) ?>" enctype="multipart/form-data">
     <div class="form-container">
         <h2><?= $title ?></h2>

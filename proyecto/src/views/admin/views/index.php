@@ -61,4 +61,27 @@ $categorias = index($categoriaSeleccionada);
             <?php endforeach; ?>     
         </tbody>
     </table>
+    
+    <?php 
+        if (isset($_SESSION['success'])): 
+        ?>
+            <p class="success"><?= htmlspecialchars($_SESSION['success']) ?></p>
+        <?php 
+        $_SESSION['success'] = '';
+        endif;
+        if (isset($_SESSION['errors'])):
+        ?>
+            <p class="error">
+        <?php 
+            foreach ($_SESSION['errors'] as $error):     
+        ?>
+                <?= htmlspecialchars($error) ?><br>
+        <?php
+            endforeach; 
+        ?>
+            </p>
+        <?php
+            $_SESSION['errors'] = [];
+        endif; 
+        ?>
 </div>
