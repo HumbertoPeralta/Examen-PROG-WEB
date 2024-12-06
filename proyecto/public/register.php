@@ -23,7 +23,8 @@ require_once __DIR__ . '/../src/controllers/LoginController.php';
         <a href="<?= BASE_URL ?>/">
             <img src="<?= ASSETS_URL ?>/img/logo.svg" alt="Imagen" class="small-img">
         </a>
-        <h2>Iniciar sesión</h2>
+        <h1>Bienvenido!</h1>
+        <h2>Ingresa tus datos para registrarte</h2>
 
         <?php
 

@@ -23,7 +23,9 @@ require_once __DIR__ . '/../src/controllers/LoginController.php';
         <a href="<?= BASE_URL ?>/">
             <img src="<?= ASSETS_URL ?>/img/logo.svg" alt="Imagen" class="small-img">
         </a>
-        <h2>Iniciar sesión</h2>
+        
+        <h1>Bienvenido!</h1>
+        <h2>Ingresa tus datos para iniciar sesión</h2>
 
         <?php
 
@@ -48,7 +50,7 @@ require_once __DIR__ . '/../src/controllers/LoginController.php';
             <button type="submit">Entrar</button>
             <div class="extra-options">
                 <a href="#">¿Olvidaste tu contraseña?</a>
-                <a href="#">Crear cuenta</a>
+                <a href="<?=BASE_URL?>/../public/register.php">Crear cuenta</a>
             </div>
         </form>
 
