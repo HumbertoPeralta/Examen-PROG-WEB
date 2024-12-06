@@ -1,7 +1,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-color: #f5f5dc;
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,9 +13,9 @@ body {
 .container {
     background-color: white;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    border-radius: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
     max-width: 30%;
 }
 
@@ -31,7 +31,7 @@ h2 {
 }
 
 .input-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
 }
 
 label {
@@ -41,20 +41,21 @@ label {
 }
 
 input {
-    width: 100%;
-    padding: 0.75rem;
+    width: 95%;
+    padding: 10px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 10px;
     font-size: 1rem;
 }
 
 button {
+    margin: 20px left;
     background-color: #1877f2;
     color: white;
     border: none;
     padding: 0.75rem;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
