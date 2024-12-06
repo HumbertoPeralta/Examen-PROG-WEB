@@ -55,8 +55,7 @@ $categorias = index($categoriaSeleccionada);
                 <td><?= htmlspecialchars($categoria['categoria']) ?></td>
                 <td class="actions">
                 <a href="<?= SRC_URL ?>/views/admin/views/form.php?producto_id=<?= $categoria['id_producto'] ?>">Editar</a>
-                <a href="#">eliminar</a>    
-
+                <a href="<?= SRC_URL ?>/controllers/AdminController.php?delete_id=<?= $categoria['id_producto'] ?>" class="delete-button">Eliminar</a>
                 </td>
             </tr>
             <?php endforeach; ?>     
