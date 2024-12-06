@@ -171,7 +171,7 @@ li:hover .submenu{
 .producto-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px; /* Aumenta el espacio entre tarjetas */
+    gap: 40px;
     padding: 30px;
     justify-items: center;
     /* display: grid;
@@ -203,7 +203,7 @@ li:hover .submenu{
 }
 
 .producto-tarjeta .producto-nombre {
-    margin-bottom: 20px; /* Añade espacio debajo del nombre del producto */
+    margin-bottom: 20px; 
     font-size: 18px;
     color: #333;
 /*     margin-top: 10px;
@@ -212,13 +212,13 @@ li:hover .submenu{
 }
 
 .producto-tarjeta .producto-btn {
-    margin-top: 40px; /* Ya está configurado */
-    margin-bottom: 20px; /* Agrega espacio debajo del botón */
+    margin-top: 40px; 
+    margin-bottom: 20px; 
     padding: 10px 20px;
     background-color: #333333;
     color: white;
     border-radius: 30px;
-    display: inline-block; /* Asegura que se comporte como botón */
+    display: inline-block; 
 /*     margin-top: 40px;
     padding: 10px 20px;
     background-color: #333333;
@@ -329,15 +329,13 @@ footer {
     margin: 25px;            
 }
 
-/* Contenedor principal del grid */
 .card-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* Crea 3 columnas iguales */
-    gap: 20px;  /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(3, 1fr);  
+    gap: 20px;  
     padding: 20px;
 }
 
-/* Estilo de las tarjetas */
 .card {
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -349,7 +347,7 @@ footer {
 }
 
 .card img {
-    width: 100%;  /* Asegura que la imagen ocupe todo el ancho de la tarjeta */
+    width: 100%;  
     height: auto;
     border-bottom: 1px solid #ccc;
 }
@@ -407,7 +405,7 @@ td {
 }
 
 th {
-    background-color: #4A90E2;
+    background-color: #0A0A23;
     color: white;
 }
 
@@ -585,7 +583,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Estilos de los campos de entrada */
 .input-group {
     margin-bottom: 15px;
 }
@@ -616,7 +613,6 @@ h2 {
     padding: 0;
 }
 
-/* Botón de enviar */
 .submit-btn {
     width: 100%;
     padding: 12px;
@@ -631,6 +627,54 @@ h2 {
 
 .submit-btn:hover {
     background-color: #0056b3;
+}
+
+.category-selector {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    margin: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px; 
+}
+
+.category-selector form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.category-selector label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    flex-shrink: 0;
+}
+
+.category-selector select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.category-selector select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.category-selector select option {
+    font-size: 16px;
+    color: #333;
 }
 
 
@@ -723,5 +767,5 @@ h2 {
 
 .small-img {
     width: 50px;
-    height: auto; /* Mantiene las proporciones */
+    height: auto; 
 }
