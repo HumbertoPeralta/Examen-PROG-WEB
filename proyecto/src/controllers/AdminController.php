@@ -115,9 +115,9 @@ function store() {
 }
 
 function update($id) {
-    $pdo = getPDO(); // Obtiene la conexión PDO.
-    $categoriesData = show($id); // Obtiene los datos de la carrera existente.
-    $imageName = saveImage(); // Guarda la nueva imagen si se subió.
+    $pdo = getPDO(); 
+    $categoriesData = show($id); 
+    $imageName = saveImage(); 
 
     try {
         $sql = "UPDATE productos SET 
