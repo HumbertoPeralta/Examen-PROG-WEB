@@ -51,7 +51,7 @@ nav ul li:hover .submenu {
 .submenu {
     display: none;
     position: absolute;
-    background-color: #444;
+    /* background-color: #444; */
     padding: 10px;
     top: 100%;
     left: 0;
@@ -118,7 +118,7 @@ nav ul li:hover .submenu {
         top: 60px;
         left: 0;
         right: 0;
-        background-color: #333;
+        /* background-color: #333; */
         z-index: 10;
         padding: 0;
     }
