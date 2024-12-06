@@ -1,27 +1,27 @@
 <?php 
-include_once  __DIR__ .'../../../layouts/header.php';
+include_once __DIR__ . '../../../layouts/header.php';
 ?>
-    <link rel="stylesheet" href="<?=ASSETS_URL?>/css/style.css">
+<link rel="stylesheet" href="<?= ASSETS_URL ?>/css/style.css">
 
 <div class="title-container">
     <h1 class="centered-title">Playeras</h1>
 </div>
 
 <?php
-
-
 $tshirts = getTshirts();
 
 if (count($tshirts) > 0) {
     foreach ($tshirts as $tshirt) {
         ?>
-
-<img src="<?=ASSETS_URL?>/img/<?php echo htmlspecialchars($tshirt['imagen']) ?>"alt="...">
-
-        <h3><?php echo htmlspecialchars($tshirt['nombre'])?>  </h3>;
-       <p> <?php echo htmlspecialchars($tshirt['descripcion'])?> </p>; 
-        <p> <?php echo "Precio: $". number_format($tshirt['precio'], 2)?>  </p>;
-<?php
+        <div class="card-container">
+            <div class="card">
+                <img src="<?= ASSETS_URL ?>/img/<?php echo htmlspecialchars($tshirt['imagen']); ?>" alt="Imagen de camiseta">
+                <h3><?php echo htmlspecialchars($tshirt['nombre']); ?></h3>
+                <p><?php echo htmlspecialchars($tshirt['descripcion']); ?></p>
+                <p><?php echo "Precio: $" . number_format($tshirt['precio'], 2); ?></p>
+            </div>
+        </div>
+        <?php
     }
 } else {
     echo "<p>No hay productos disponibles.</p>";
@@ -29,5 +29,6 @@ if (count($tshirts) > 0) {
 ?>
 
 <?php
-include_once  __DIR__ .'../../../layouts/footer.php';
+include_once __DIR__ . '../../../layouts/footer.php';
 ?>
+
