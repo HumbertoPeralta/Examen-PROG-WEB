@@ -1,5 +1,6 @@
 <?php 
-require_once __DIR__.'/../helpers/functions.php'; 
+require_once __DIR__.'/../helpers/functions.php';
+require_once __DIR__ . '/../helpers/auth.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     clean_post_inputs();
@@ -10,12 +11,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 }
 
+
 function index($categoria)
 {
     $pdo = getPDO();
 
     try {
-        $sql = "SELECT nombre, precio, descripcion, talla, color, imagen, categoria 
+        $sql = "SELECT id_producto,nombre, precio, descripcion, talla, color, imagen, categoria 
                 FROM productos 
                 WHERE categoria = :categoria";
         $stmt = $pdo->prepare($sql);
@@ -31,23 +33,18 @@ function index($categoria)
 function show($id) 
 {
     $id = htmlspecialchars($id); 
-
     if ($id === null) {
         return []; 
     }
-
     $pdo = getPDO(); 
-
     try {
-        $sql = "SELECT * FROM productos WHERE id = :id LIMIT 1"; 
+        $sql = "SELECT * FROM productos WHERE id_producto = :id_producto LIMIT 1"; 
         $stmt = $pdo->prepare($sql);
-        $stmt->execute(['id' => $id]); 
+        $stmt->execute(['id_producto' => $id]); 
         $categoriesData = $stmt->fetch(PDO::FETCH_ASSOC); 
-
         if (!$categoriesData) {
             return []; 
         }
-
         return $categoriesData; 
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos: " . $e->getMessage());
@@ -55,8 +52,31 @@ function show($id)
     }
 }
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $producto_id = filter_input(INPUT_POST, 'id_producto', FILTER_SANITIZE_NUMBER_INT);
+
+    if ($producto_id) {
+        $pdo = getPDO();
+        try {
+            $sql = "DELETE FROM productos WHERE id = :id";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['id' => $producto_id]);
+
+            $_SESSION['success'] = 'Producto eliminado con éxito.';
+        } catch (PDOException $e) {
+            error_log("Error al eliminar producto: " . $e->getMessage());
+            $_SESSION['errors'] = ['Error al eliminar el producto.'];
+        }
+    } else {
+        $_SESSION['errors'] = ['ID del producto inválido.'];
+    }
+
+    header('Location: index.php');
+    exit;
+}
+
 function store() {
-    $imageName = saveImage(); // Guarda la imagen y obtiene su nombre.
+    $imageName = saveImage(); 
     
     $pdo = getPDO(); // Obtiene la conexión PDO.
 
@@ -98,10 +118,10 @@ function update($id) {
                     color = :color, 
                     categoria = :categoria,
                     imagen = :imagen
-                WHERE id = :id"; // Consulta para actualizar la carrera.
+                WHERE id_producto = :id_producto"; // Consulta para actualizar la carrera.
         $stmt = $pdo->prepare($sql);
         $data = [
-            'id' => $id, 
+            'id_producto' => $id, 
             'nombre' => $_POST['nombre'],
             'precio' => $_POST['precio'],
             'descripcion' => $_POST['descripcion'],

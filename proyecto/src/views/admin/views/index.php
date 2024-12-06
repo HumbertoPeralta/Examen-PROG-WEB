@@ -40,6 +40,7 @@ $categorias = index($categoriaSeleccionada);
                 <th>Color</th>
                 <th>Imagen</th>
                 <th>Categoría</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -52,6 +53,11 @@ $categorias = index($categoriaSeleccionada);
                 <td><?= htmlspecialchars($categoria['color']) ?></td>
                 <td><img src="<?= htmlspecialchars($categoria['imagen']) ?>" alt="<?= htmlspecialchars($categoria['nombre']) ?>" style="max-width: 100px;"></td>
                 <td><?= htmlspecialchars($categoria['categoria']) ?></td>
+                <td class="actions">
+                <a href="<?= SRC_URL ?>/views/admin/views/form.php?producto_id=<?= $categoria['id_producto'] ?>">Editar</a>
+                <a href="#">eliminar</a>    
+
+                </td>
             </tr>
             <?php endforeach; ?>     
         </tbody>
