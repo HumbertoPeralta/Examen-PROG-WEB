@@ -1,65 +1,79 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-}
-
+/* Contenedor del título */
 .title-container {
     text-align: center;
-    margin: 2rem 0;
+    margin: 20px 0;
 }
 
 .centered-title {
     font-size: 2rem;
+    font-weight: bold;
     color: #333;
 }
 
+/* Contenedor de las tarjetas */
 .card-container {
-    display: flex;
-    /* flex-wrap: wrap; */ /* Permite que las tarjetas se ajusten a la siguiente fila cuando no hay suficiente espacio */
-    /* justify-content: flex-start; */ /* Alinea las tarjetas hacia la izquierda (o puedes usar 'center' si lo prefieres centrado) */
-    /* gap: 1rem; */ /* Espaciado entre las tarjetas */
-    /* padding: 0 1rem; */ /* Añade un poco de espaciado a los lados */
+    display: flex; /* Activamos flexbox */
+    flex-wrap: wrap; /* Permitimos que las tarjetas pasen a la siguiente línea si no caben */
+    justify-content: center; /* Centramos las tarjetas horizontalmente */
+    gap: 20px; /* Espaciado entre tarjetas */
+    margin: 20px 10px;
 }
 
+/* Estilo para las tarjetas */
 .card {
-    border: 1px solid #ddd;
-    padding: 1rem;
-    max-width: 300px;
-    background-color: white;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
     text-align: center;
-    /* flex: 1 1 calc(33.33% - 1rem); */ /* Hace que cada tarjeta ocupe un tercio del espacio disponible, dejando un espacio entre ellas */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño de la tarjeta */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card img {
     max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .card h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #333;
+    margin: 10px 0;
 }
 
 .card p {
     font-size: 1rem;
-    color: #555;
+    color: #666;
+    margin: 10px 0;
 }
 
-/* Ajustes responsivos para pantallas pequeñas */
+/* Hover efecto */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsividad */
 @media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
     .card {
-        flex: 1 1 calc(50% - 1rem); /* Dos tarjetas por fila en pantallas medianas */
+        width: 90%;
     }
 }
 
 @media (max-width: 480px) {
+    .centered-title {
+        font-size: 1.5rem;
+    }
+
     .card {
-        flex: 1 1 100%; /* Una tarjeta por fila en pantallas pequeñas */
+        width: 100%;
+        padding: 15px;
     }
 }
