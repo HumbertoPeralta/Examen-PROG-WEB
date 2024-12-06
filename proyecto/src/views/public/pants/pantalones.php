@@ -14,7 +14,7 @@ $pants = getPants();
 
 if (count($pants) > 0) {
     echo '<div class="card-container">';
-    foreach ($pants as $pants) {
+    foreach ($pants as $pant) {
         echo '<div class="card">';
         echo '<img src="' . htmlspecialchars($pants['imagen']) . '" alt="' . htmlspecialchars($pants['nombre']) . '">';
         echo "<h3>" .($pants['nombre']) . "</h3>";

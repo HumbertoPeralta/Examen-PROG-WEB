@@ -13,7 +13,7 @@ $hoodies = getHoodies();
 
 if (count($hoodies) > 0) {
     echo '<div class="card-container">';
-    foreach ($hoodies as $hoodies) {
+    foreach ($hoodies as $hoodie) {
         echo '<div class="card">';
         echo '<img src="' . htmlspecialchars($hoodies['imagen']) . '" alt="' . htmlspecialchars($hoodies['nombre']) . '">';
         echo "<h3>" .($hoodies['nombre']) . "</h3>";
