@@ -30,18 +30,9 @@
 
         <a class="logo" href="<?=BASE_URL?>"> AESTETIK </a>
 
-         <!-- Botones de Login y Registro -->
          <div class="auth-buttons">
             <a class="login-button" href="<?=BASE_URL?>/login">Iniciar sesión</a>
             <a class="register-button" href="<?=BASE_URL?>/../public/register.php">Registro</a>
         </div>
-
-        <script>
-    // Toggle del menú para móviles
-    document.getElementById('menu-toggle').addEventListener('click', function() {
-        var menu = document.querySelector('nav ul');
-        menu.classList.toggle('active');
-    });
-</script>
 
 </header>

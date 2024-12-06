@@ -89,28 +89,28 @@ if (isset($_GET['delete_id'])) {
 function store() {
     $imageName = saveImage(); 
     
-    $pdo = getPDO(); // Obtiene la conexión PDO.
+    $pdo = getPDO();
 
     try {
         $sql = "INSERT INTO productos (nombre,precio,descripcion,talla,color,categoria,imagen) VALUES (:nombre,:precio,:descripcion,:talla,:color,:categoria,:imagen)";
-        $stmt = $pdo->prepare($sql); // Prepara la consulta SQL.
+        $stmt = $pdo->prepare($sql); 
         $data = [
-            'nombre' => $_POST['nombre'], // Datos del formulario.
+            'nombre' => $_POST['nombre'], 
             'precio' => $_POST['precio'],
             'descripcion' => $_POST['descripcion'],
             'talla' => $_POST['talla'],
             'color' => $_POST['color'],
             'categoria' => $_POST['categoria'],
-            'imagen' => $imageName != null ? 'tshirts/'.$imageName : null // Guarda la URL de la imagen si existe.
+            'imagen' => $imageName != null ? 'tshirts/'.$imageName : null 
         ];
 
-        $stmt->execute($data); // Ejecuta la consulta.
+        $stmt->execute($data); 
         
-        set_success_message('Se ha agregado el producto.'); // Mensaje de éxito.
-        redirect_back(); // Redirige al usuario.
+        set_success_message('Se ha agregado el producto.'); 
+        redirect_back(); 
     } catch (PDOException $e) {
-        error_log("Error al consultar la base de datos: " . $e->getMessage()); // Registra el error.
-        set_error_message_redirect($e->getMessage()); // Mensaje de error.
+        error_log("Error al consultar la base de datos: " . $e->getMessage()); 
+        set_error_message_redirect($e->getMessage()); 
     }
 }
 
@@ -128,7 +128,7 @@ function update($id) {
                     color = :color, 
                     categoria = :categoria,
                     imagen = :imagen
-                WHERE id_producto = :id_producto"; // Consulta para actualizar la carrera.
+                WHERE id_producto = :id_producto"; 
         $stmt = $pdo->prepare($sql);
         $data = [
             'id_producto' => $id, 
@@ -138,22 +138,22 @@ function update($id) {
             'talla' => $_POST['talla'],
             'color' => $_POST['color'],
             'categoria' => $_POST['categoria'],
-            'imagen' => $imageName ? 'tshirts/'.$imageName : $categoriesData['imagen'] // Usa la nueva imagen si existe.
+            'imagen' => $imageName ? 'tshirts/'.$imageName : $categoriesData['imagen'] 
         ];
 
-        $stmt->execute($data); // Ejecuta la consulta.
-        // Borra la imagen previa si se subió una nueva.
+        $stmt->execute($data); 
+       
         if ($imageName && $categoriesData['imagen']) {
             $oldImagePath = __DIR__ . '/../../public/assets/img/' . $categoriesData['imagen'];
             if (file_exists($oldImagePath)) 
-                unlink($oldImagePath); // Elimina la imagen antigua.
+                unlink($oldImagePath); 
         }
         
-        set_success_message('Se han guardado los cambios.'); // Mensaje de éxito.
-        redirect_back(); // Redirige al usuario.
+        set_success_message('Se han guardado los cambios.'); 
+        redirect_back(); 
     } catch (PDOException $e) {
-        error_log("Error al consultar la base de datos: " . $e->getMessage()); // Registra el error.
-        set_error_message_redirect($e->getMessage()); // Mensaje de error.
+        error_log("Error al consultar la base de datos: " . $e->getMessage()); 
+        set_error_message_redirect($e->getMessage()); 
     }
 
     
@@ -164,34 +164,29 @@ function saveImage()
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
         $image = $_FILES['imagen'];
 
-        // Validar tipo de archivo (solo imágenes).
         $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
         if (!in_array($image['type'], $allowedTypes)) {
             set_error_message_redirect('Solo se permiten imágenes JPEG, PNG o GIF.');
         }
 
-        // Validar tamaño (máximo 2 MB).
         if ($image['size'] > 2 * 1024 * 1024) {
             set_error_message_redirect("El tamaño de la imagen no debe exceder los 2 MB.");
         }
 
-        // Crear una carpeta para las imágenes si no existe.
         $uploadDir = __DIR__ . '/../../public/assets/img/tshirts/';
         if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true); // Crea la carpeta con permisos.
+            mkdir($uploadDir, 0755, true); 
         }
 
-        // Generar un nombre único para la imagen.
         $imageName = uniqid('img_', true) . '.' . pathinfo($image['name'], PATHINFO_EXTENSION);
 
-        // Mover la imagen a la carpeta de destino.
         $imagePath = $uploadDir . $imageName;
         if (!move_uploaded_file($image['tmp_name'], $imagePath)) {
             set_error_message_redirect("Error al mover la imagen.");
         }
 
-        return $imageName; // Retorna el nombre de la imagen.
+        return $imageName; 
     }
     
-    return null; // Si no se subió imagen, retorna null.
+    return null; 
 }

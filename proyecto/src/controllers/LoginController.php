@@ -28,16 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Correo o contraseña incorrectos.');
     }
 
-    // Configurar la sesión del usuario
     $_SESSION['id_usuario'] = $user['id_usuario'];
     $_SESSION['nombre_usuario'] = $user['nombre_usuario'];
     $_SESSION['tipo'] = $user['tipo'];
 
-    // Redirigir al usuario según su tipo
     if ($user['tipo'] === 'administrador') {
-        header('Location:' .BASE_URL. '/admin'); // Ruta para administrador
+        header('Location:' .BASE_URL. '/admin'); 
     } else {
-        header('Location: ' . BASE_URL . '/');
+        header('Location: ' . BASE_URL .'/');
     }
     exit;
 }
