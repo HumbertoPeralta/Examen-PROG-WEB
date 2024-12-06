@@ -30,14 +30,12 @@
 
         <a class="logo" href="<?=BASE_URL?>"> AESTETIK </a>
 
-        <a href="<?=BASE_URL?>/login">
-        <img src="<?=ASSETS_URL?>/img/user.svg" alt="Imagen" class="small-img">
-        </a>
-        <!-- <a class="logo" href="<?=BASE_URL?>/login"> Login </a> -->
+         <!-- Botones de Login y Registro -->
+         <div class="auth-buttons">
+            <a class="login-button" href="<?=BASE_URL?>/login">Login</a>
+            <a class="register-button" href="<?=BASE_URL?>/../public/register.php">Registro</a>
+        </div>
 
-        <!-- <div class="buscador">
-            <input type="text" placeholder="Buscar...">
-        </div> -->
         <script>
     // Toggle del menú para móviles
     document.getElementById('menu-toggle').addEventListener('click', function() {
@@ -46,4 +44,4 @@
     });
 </script>
 
-    </header>
+</header>

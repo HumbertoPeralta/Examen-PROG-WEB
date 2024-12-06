@@ -1,3 +1,20 @@
+ /* Estilo para los botones de login y registro */
+ .auth-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.login-button, .register-button {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.login-button:hover, .register-button:hover {
+    opacity: 0.8;
+}
 /* Estilos generales para el header */
 header {
     background-color: #333;
