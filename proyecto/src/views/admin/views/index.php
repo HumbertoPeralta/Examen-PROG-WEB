@@ -6,6 +6,11 @@ require __DIR__.'/../../../controllers/AdminController.php';
 $categoriaSeleccionada = isset($_GET['categoria']) ? $_GET['categoria'] : 'playera';
 
 $categorias = index($categoriaSeleccionada);
+
+if ($_SESSION['tipo'] !== 'administrador') {
+    header('Location: /index.php'); 
+    exit;
+}
 ?>
 
 <div>

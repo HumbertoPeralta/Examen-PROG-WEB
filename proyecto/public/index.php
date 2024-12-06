@@ -16,7 +16,7 @@ switch($request){
     case URL . '/login':
         require_once __DIR__.'/login.php';
         break;
-    case URL . '/tshirt':
+    case URL . '/admin':
         require_once __DIR__.'/../src/views/admin/views/index.php';
         break;
     case URL . '/logout':

@@ -1,5 +1,11 @@
 <?php 
 include_once __DIR__ . '../../../layouts/header.php';
+session_start();
+
+if (!isset($_SESSION['id_usuario'])) {
+    header('Location: ' . BASE_URL . '/login');
+    exit;
+}
 ?>
 <link rel="stylesheet" href="<?= ASSETS_URL ?>/css/styleProducto.css">
 

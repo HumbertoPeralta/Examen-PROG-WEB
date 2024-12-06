@@ -40,8 +40,8 @@ require_once __DIR__ . '/../src/controllers/LoginController.php';
         <form method="POST" action="<?= SRC_URL ?>/controllers/LoginController.php">
 
             <div class="input-group">
-                <label for="username">Usuario</label>
-                <input type="text" id="username" name="username" required>
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
             </div>
             <div class="input-group">
                 <label for="password">Contraseña</label>

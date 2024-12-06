@@ -7,19 +7,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefono = $_POST['telefono'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
-    $tipo = 'cliente'; // Asignar tipo predeterminado como cliente.
+    $tipo = 'cliente'; 
 
-    // Validaciones básicas
     if (empty($nombre_usuario) || empty($apellido_paterno) || empty($telefono) || empty($email) || empty($password)) {
         die('Todos los campos son obligatorios.');
     }
 
-    // Validar formato del correo electrónico
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         die('El formato del correo electrónico no es válido.');
     }
 
-    // Validar si el correo ya existe en la base de datos
     $pdo = getPDO();
     $sqlCheck = "SELECT COUNT(*) FROM usuario WHERE email = :email";
     $stmtCheck = $pdo->prepare($sqlCheck);
@@ -28,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('El correo electrónico ya está registrado.');
     }
 
-    // Insertar el nuevo usuario
     $sql = "INSERT INTO usuario (nombre_usuario, apellido_paterno, telefono, email, password, tipo) 
             VALUES (:nombre_usuario, :apellido_paterno, :telefono, :email, :password, :tipo)";
     $stmt = $pdo->prepare($sql);
@@ -39,10 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'apellido_paterno' => $apellido_paterno,
             'telefono' => $telefono,
             'email' => $email,
-            'password' => password_hash($password, PASSWORD_DEFAULT), // Cifrado seguro de contraseña
-            'tipo' => $tipo // Tipo predeterminado
+            'password' => password_hash($password, PASSWORD_DEFAULT), 
+            'tipo' => $tipo 
         ]);
-        echo 'Usuario registrado con éxito.';
+       echo "<script>
+        alert('Usuario registrado con éxito.');
+        window.location.href = '/Examen-PROG-WEB/proyecto/public'; // Ajusta la ruta según tu estructura
+    </script>";
     } catch (PDOException $e) {
         error_log("Error al registrar usuario: " . $e->getMessage());
         die('Error al registrar el usuario.'. $e->getMessage());
