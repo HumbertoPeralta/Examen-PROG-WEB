@@ -106,7 +106,7 @@ function store() {
 
         $stmt->execute($data); // Ejecuta la consulta.
         
-        set_success_message('Se ha agregado la playera.'); // Mensaje de éxito.
+        set_success_message('Se ha agregado el producto.'); // Mensaje de éxito.
         redirect_back(); // Redirige al usuario.
     } catch (PDOException $e) {
         error_log("Error al consultar la base de datos: " . $e->getMessage()); // Registra el error.
